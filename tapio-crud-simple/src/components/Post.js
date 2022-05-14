@@ -1,7 +1,12 @@
 import React from 'react'
-import './user.css'
+import './post.css'
 
-const User = ({id,body,title}) => {
+const Post = ({id,body,title, onDelete}) => {
+
+    const handleDelete = () =>{
+        onDelete(id);
+    }
+
   return (
     <div className='list'>
         <span>{id}</span>
@@ -9,11 +14,11 @@ const User = ({id,body,title}) => {
         <span>{body}</span>
         <span>
             <button>edit</button>
-            <button>delete</button>
+            <button onClick={handleDelete}>delete</button>
         </span>
         
     </div>
   )
 }
 
-export default User
+export default Post

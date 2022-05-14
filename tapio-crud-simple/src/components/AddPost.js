@@ -1,6 +1,6 @@
 import React from 'react'
 
-const AddUser = ({ onAdd }) => {
+const AddPost = ({ onAdd }) => {
 
 const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ const handleOnSubmit = (e) => {
   return (
     <div>
         <form onSubmit={handleOnSubmit}>
-            <h3>Add User</h3>
+            <h3>Add Post</h3>
             <input placeholder='Title' name="title"/>
             <input placeholder='Body' name="body"/>
             <button onSubmit={handleOnSubmit}>Add</button>
@@ -23,4 +23,4 @@ const handleOnSubmit = (e) => {
   )
 }
 
-export default AddUser
+export default AddPost

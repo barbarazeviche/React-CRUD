@@ -1,12 +1,12 @@
-import User from './components/User';
-import AddUser from './components/AddUser';
+import Post from './components/Post';
+import AddPost from './components/AddPost';
 import './App.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
 function App() {
 
-  const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetchData()
   }, [])
@@ -14,7 +14,7 @@ function App() {
   const fetchData = async () => {
     await fetch ('https://jsonplaceholder.typicode.com/posts/')
     .then((res) => res.json())
-    .then((data) => setUsers(data))
+    .then((data) => setPosts(data))
     .catch((err) => {
       console.log(err);
     })
@@ -39,26 +39,49 @@ function App() {
       }
     })
     .then((data) => {
-      setUsers((users) => [...users, data]);
+      setPosts((posts) => [...posts, data]);
     })
     .catch((err) => {
       console.log(err);
     })
   }
 
-  console.log(users)
+  const onDelete = async (id) => {
+    await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
+      method: 'DELETE'
+    })
+    .then((res) => {
+      if(res.status !== 200){
+        return
+      }else{
+        setPosts(posts.filter((post) => {
+          return post.id !== id;
+        }))
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+  }
+
+  console.log(posts)
   return (
     <div className="App">
       <h3>React CRUD Using JSONplaceholder</h3>
 
       <br />
 
-      <AddUser onAdd={onAdd}/>
+      <AddPost onAdd={onAdd}/>
 
       <div>
         {
-          users.map((user) =>(
-            <User id={user.id} key={user.id} title={user.title} body={user.body}/>
+          posts.map((post) =>(
+            <Post 
+            id={post.id} 
+            key={post.id} 
+            title={post.title} 
+            body={post.body} 
+            onDelete={onDelete}/>
           ))
         }
       </div>
