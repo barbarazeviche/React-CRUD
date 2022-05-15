@@ -21,4 +21,4 @@ const Post = ({id,body,title, onDelete}) => {
   )
 }
 
-export default Post
+export default Post 
