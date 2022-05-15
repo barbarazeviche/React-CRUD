@@ -3,7 +3,7 @@ import AddPost from './components/AddPost';
 import './App.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Button } from './components/Button.style';
+import { Button } from './components/button.style';
 
 
 function App() {
@@ -70,7 +70,7 @@ function App() {
   return (
     <div className="App">
 
-      <Button>Click me to test</Button>
+      <Button Click me to test/>
       <h3>React CRUD Using JSONplaceholder</h3>
 
       <br />
