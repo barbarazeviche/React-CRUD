@@ -3,6 +3,8 @@ import AddPost from './components/AddPost';
 import './App.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Button } from './components/Button.style';
+
 
 function App() {
 
@@ -67,6 +69,8 @@ function App() {
   console.log(posts)
   return (
     <div className="App">
+
+      <Button>Click me to test</Button>
       <h3>React CRUD Using JSONplaceholder</h3>
 
       <br />

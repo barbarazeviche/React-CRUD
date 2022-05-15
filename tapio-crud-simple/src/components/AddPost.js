@@ -1,4 +1,5 @@
 import React from 'react'
+import { Button } from './components/Button.style';
 
 const AddPost = ({ onAdd }) => {
 
@@ -15,7 +16,7 @@ const handleOnSubmit = (e) => {
             <h3>Add Post</h3>
             <input placeholder='Title' name="title"/>
             <input placeholder='Body' name="body"/>
-            <button onSubmit={handleOnSubmit}>Add</button>
+            <Button onSubmit={handleOnSubmit}>Add</Button>
             <hr/>
         </form>
         
