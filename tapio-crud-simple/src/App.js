@@ -4,7 +4,7 @@ import { AppContainer } from './components/Container.style';
 import './App.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Button, ButtonLabel } from './components/button.style';
+import { Button, ButtonLabel } from './components/Button.style';
 import { PostContainer } from './components/PostContainer.style'
 
 
