@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button } from './button.style';
+import { Button } from './Button.style';
 
 const AddPost = ({ onAdd }) => {
 
