@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, ButtonLabel } from './components/Button.style';
 import { PostContainer } from './components/PostContainer.style'
-
+import { Form, Input, Button, Footer, HeartOutlined } from 'antd';
 
 function App() {
 
@@ -95,6 +95,7 @@ function App() {
         </div>
       </PostContainer>
     </AppContainer>
+    <Footer style={{ textAlign:"center"}}>Created by Bárbara <HeartOutlined /> </Footer>
   );
 }
 
