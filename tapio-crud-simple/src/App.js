@@ -1,9 +1,11 @@
 import Post from './components/Post';
 import AddPost from './components/AddPost';
+import { AppContainer } from './components/Container.style';
 import './App.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Button } from './components/button.style';
+import { Button, ButtonLabel } from './components/button.style';
+
 
 
 function App() {
@@ -68,9 +70,9 @@ function App() {
 
   console.log(posts)
   return (
-    <div className="App">
+    <AppContainer backgroundColor="grey">
 
-      <Button Click me to test/>
+      <Button backgroundColor ="blue"> <ButtonLabel>Click me to test</ButtonLabel></Button>
       <h3>React CRUD Using JSONplaceholder</h3>
 
       <br />
@@ -89,21 +91,7 @@ function App() {
           ))
         }
       </div>
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-    </div>
+    </AppContainer>
   );
 }
 

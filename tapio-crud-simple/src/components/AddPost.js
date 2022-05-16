@@ -16,7 +16,7 @@ const handleOnSubmit = (e) => {
             <h3>Add Post</h3>
             <input placeholder='Title' name="title"/>
             <input placeholder='Body' name="body"/>
-            <Button onSubmit={handleOnSubmit}/>
+            <Button backgroundColor ="violet" onSubmit={handleOnSubmit}>Also click here</Button>
             <hr/>
         </form>
         
