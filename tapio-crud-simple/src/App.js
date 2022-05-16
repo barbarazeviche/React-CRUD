@@ -5,7 +5,7 @@ import './App.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Button, ButtonLabel } from './components/button.style';
-
+import { PostContainer } from './components/PostContainer.style'
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   }, [])
 
   const fetchData = async () => {
-    await fetch ('https://jsonplaceholder.typicode.com/posts/')
+    await fetch ('https://jsonplaceholder.typicode.com/posts?_start=0&_limit=5')
     .then((res) => res.json())
     .then((data) => setPosts(data))
     .catch((err) => {
@@ -43,7 +43,8 @@ function App() {
       }
     })
     .then((data) => {
-      setPosts((posts) => [...posts, data]);
+      setPosts((posts) => [...posts
+        , data]);
     })
     .catch((err) => {
       console.log(err);
@@ -72,25 +73,27 @@ function App() {
   return (
     <AppContainer backgroundColor="grey">
 
-      <Button backgroundColor ="blue"> <ButtonLabel>Click me to test</ButtonLabel></Button>
-      <h3>React CRUD Using JSONplaceholder</h3>
+      <PostContainer>
+        
+        <h3>React CRUD Using JSONplaceholder</h3>
 
-      <br />
+        <br />
 
-      <AddPost onAdd={onAdd}/>
+        <AddPost onAdd={onAdd}/>
 
-      <div>
-        {
-          posts.map((post) =>(
-            <Post 
-            id={post.id} 
-            key={post.id} 
-            title={post.title} 
-            body={post.body} 
-            onDelete={onDelete}/>
-          ))
-        }
-      </div>
+        <div>
+          {
+            posts.map((post) =>(
+              <Post 
+              id={post.id} 
+              key={post.id} 
+              title={post.title} 
+              body={post.body} 
+              onDelete={onDelete}/>
+            ))
+          }
+        </div>
+      </PostContainer>
     </AppContainer>
   );
 }
