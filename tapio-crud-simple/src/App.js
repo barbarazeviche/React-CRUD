@@ -1,11 +1,11 @@
-import Post from './components/Post';
-import AddPost from './components/AddPost';
-import { AppContainer } from './components/Container.style';
+import Post from './components/post/Post';
+import AddPost from './components/addpost/AddPost';
+// import { AppContainer } from './components/Container.style';*/
 import './App.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Button, ButtonLabel } from './components/Button.style';
-import { PostContainer } from './components/PostContainer.style'
+
+
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
     fetchData()
   }, [])
 
+  //  TO GET ALL DATA
   const fetchData = async () => {
     await fetch ('https://jsonplaceholder.typicode.com/posts?_start=0&_limit=5')
     .then((res) => res.json())
@@ -24,6 +25,7 @@ function App() {
     })
   }
 
+  //  TO ADD TASK
   const onAdd = async (title,body) => {
     await fetch('https://jsonplaceholder.typicode.com/posts/', {
       method:'POST',
@@ -51,6 +53,7 @@ function App() {
     })
   }
 
+  //  TO DELETE TASK
   const onDelete = async (id) => {
     await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
       method: 'DELETE'
@@ -71,9 +74,9 @@ function App() {
 
   console.log(posts)
   return (
-    <AppContainer backgroundColor="grey">
+    <div className="App-header" >
 
-      <PostContainer>
+      <div className="niahhhh">
         
         <h3>React CRUD Using JSONplaceholder</h3>
 
@@ -81,7 +84,6 @@ function App() {
 
         <AddPost onAdd={onAdd}/>
 
-        <div>
           {
             posts.map((post) =>(
               <Post 
@@ -92,9 +94,8 @@ function App() {
               onDelete={onDelete}/>
             ))
           }
-        </div>
-      </PostContainer>
-    </AppContainer>
+      </div>
+    </div>
   );
 }
 

@@ -1,0 +1,36 @@
+
+
+.listContainer{
+    width:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    height: 100px;
+   overflow-y: scroll;
+}
+
+span{
+    font-size: 15px;
+    
+}
+
+.id{
+    width: 30px;
+    
+} 
+
+.title{
+    width: 100px;
+} 
+
+.text{
+    width:100px;
+    
+}
